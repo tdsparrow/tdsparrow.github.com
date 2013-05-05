@@ -3,13 +3,11 @@ layout: post
 title: Blog搬家到GAE
 ---
 
-
-{{ page.title }}
-================
-
 这周在[GAE][gae]上架好了一个简单的blog，从此可以摆脱自己二奶机上的[typo][]了。也许将来可以多写一点。
 [gae]: http://appengine.google.com
 [typo]: http://typosphere.org
+
+<!-- more -->
 
 
 这个blog是基于[scanty][]的，稍加[改动][git]后使这个[sinatra][] app可以跑在[GAE][gae]上。[sinatra][]的简洁挺适合我入门web的，而[GAE][gae]也可以保证服务的可靠，以前二奶机总是有这那的问题（不过好像GAE上应用启动的时间挺长的）。
@@ -21,21 +19,26 @@ title: Blog搬家到GAE
 
 *  安装[GAE][gae]开发需要的
 
-         gem install google-appengine
-    	 gem install 
-         gem install 
-         gem install dm-appengine
+{% highlight bash %}
+gem install google-appengine
+gem install 
+gem install 
+gem install dm-appengine
+{% endhighlight %}
 
-其中[google-appengine]包含了[GAE][gae]的SDK以及相应最基本的jruby环境和rack。warbler是帮助将ruby的文件打包到WAR包，bundler08则是帮助将app依赖的库导出到app的路径下，方便warbler打包，dm-appengine 是datamapper的datastore的adapter。
+其中google-appengine包含了[GAE][gae]的SDK以及相应最基本的jruby环境和rack。warbler是帮助将ruby的文件打包到WAR包，bundler08则是帮助将app依赖的库导出到app的路径下，方便warbler打包，dm-appengine 是datamapper的datastore的adapter。
 
 * 下载[scanty][]的代码
 
-        git clone http://github.com/adamwiggins/scanty.git
-        
+{% highlight bash %}
+git clone http://github.com/adamwiggins/scanty.git
+{% endhighlight %}        
 
 * 启动[GAE][gae]应用
 
-        dev_appserver.rb
+{% highlight bash %}
+dev_appserver.rb
+{% endhighlight %}
 
 * 修改scanty  
     1. Gemfile需要打包的依赖  

@@ -2,14 +2,11 @@
 layout: post
 title: iPad上Safari的Bookmarklet
 ---
-
-{{ page.title }}
-================
-
  
 经常用ipad阅读web的内容话会很希望能记录下来以后回顾或者分享给别人，如果不安装应用作为safari的插件或者换个浏览器挺困难的。
 昨天无意中发现IPad的Safari浏览器是能够支持bookmarklet的，这样很多常用的应用就可以无缝的迁移到IPad上了。
 
+<!-- more -->
 
 首先先创任意的一个书签：
 
@@ -39,13 +36,19 @@ title: iPad上Safari的Bookmarklet
 
 Google Reader Note:
 
-          javascript:var%20b=document.body;var%20GR________bookmarklet_domain='https://www.google.com';if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='https://www.google.com/reader/ui/link-bookmarklet.js');void(b.appendChild(z));}else{}
+{% highlight javascript %}
+javascript:var%20b=document.body;var%20GR________bookmarklet_domain='https://www.google.com';if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='https://www.google.com/reader/ui/link-bookmarklet.js');void(b.appendChild(z));}else{}
+{% endhighlight %}
 
 readlilater:
 
-          javascript:(function(){ISRIL_H='3481';ISRIL_SCRIPT=document.createElement('SCRIPT');ISRIL_SCRIPT.type='text/javascript';ISRIL_SCRIPT.src='http://readitlaterlist.com/b/r.js';document.getElementsByTagName('head')[0].appendChild(ISRIL_SCRIPT)})();
+{% highlight javascript %}
+javascript:(function(){ISRIL_H='3481';ISRIL_SCRIPT=document.createElement('SCRIPT');ISRIL_SCRIPT.type='text/javascript';ISRIL_SCRIPT.src='http://readitlaterlist.com/b/r.js';document.getElementsByTagName('head')[0].appendChild(ISRIL_SCRIPT)})();
+{% endhighlight %}
 
 evernote:
 
-          javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title);}})();
+{% highlight javascript %}
+javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title);}})();
+{% endhighlight %}
 

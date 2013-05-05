@@ -3,18 +3,19 @@ layout: post
 title: 更新了Scanty On GAE
 ---
 
-{{ page.title }}
-===============
-
 appengine-tools的版本有很久没有更新了，今天把更新了的版本推上了GAE，加入了buzz更新。顺便还修正了原来的一个bug。为了让scanty跑在GAE上，dm-appengine替换了原来的Sequel作为ORM。在输出tag的时候有如下一段代码：
 
 
-       def linked_tags
-                tags ||= []
-                tags.inject([]) do |accum, tag|
-                        accum << "<a href=\"/past/tags/#{tag}\">#{tag}</a>"
-                end.join(" ")
-       end
+<!-- more -->
+
+{% highlight ruby %}
+def linked_tags
+  tags ||= []
+  ags.inject([]) do |accum, tag|
+    accum << "<a href=\"/past/tags/#{tag}\">#{tag}</a>"
+  end.join(" ")
+end
+{% endhighlight %}       
 
 
 结果总是输出为空。后来发现dm是通过method-missing来帮助model访问数据的，这里的tags不应该是local
